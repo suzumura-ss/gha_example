@@ -10,4 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Test
-        run: echo "Run Test"
+        run: |
+          echo "Run Test"
+          ./script.sh
