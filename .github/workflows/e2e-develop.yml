@@ -1,18 +1,20 @@
 ---
-name: frontend cd
+name: frontend e2e develop
 on:
   workflow_run:
-    workflows: [frontend e2e develop]
+    workflows: [frontend ci]
     types:
       - completed
     branches:
       - develop
 
 jobs:
-  frontend-deploy:
+  frontend-e2e-develop:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v3
-      - name: Run Deploy
-        run: echo "Run Deploy"
+      - name: Run Test
+        run: |
+          echo "Run Test"
+          false
